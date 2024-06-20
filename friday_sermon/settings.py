@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'friday_sermon.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-        #  'NAME': 'sermons', 'USER': 'alialkorsani', 'PASSWORD': 'E37C0E07F47892A8B7E22A6C2602BAECCE602ED5', 'HOST': 'localhost', 'PORT': '3306'
+       'ENGINE': 'django.db.backends.mysql',
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'sermons', 'USER': 'alialkorsani', 'PASSWORD': 'E37C0E07F47892A8B7E22A6C2602BAECCE602ED5', 'HOST': 'localhost', 'PORT': '3306'
     }
 }
 
