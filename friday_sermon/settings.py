@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-co_hvbz3rq#0h_*^i&vc=_x2em=kn@2du%sr#rj@gft)7512nm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.90.86", '127.0.0.1','localhost', 'sermons.alsafi.org']
+ALLOWED_HOSTS = ["77.37.124.248", '127.0.0.1','localhost', 'sermons.alsafi.org']
 # Application definition
 
 INSTALLED_APPS = [
