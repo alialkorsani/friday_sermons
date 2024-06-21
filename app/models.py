@@ -66,7 +66,8 @@ class Lecture(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
 
 class LectureVideo(models.Model):
-    item = models.OneToOneField(
+    id = models.AutoField(primary_key=True)  # Add an explicit primary key
+    item = models.ForeignKey(
         Lecture,
         on_delete=models.CASCADE,
         related_name="files"
@@ -86,6 +87,7 @@ class FridaySermon(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
 
 class FridaySermonVideo(models.Model):
+    id = models.AutoField(primary_key=True)  # Add an explicit primary key
     item = models.ForeignKey(FridaySermon, on_delete=models.CASCADE, related_name="files")
     image = models.ImageField(upload_to="videos")
 
