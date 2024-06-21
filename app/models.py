@@ -39,7 +39,7 @@ HELPS_SOURCE = [
 
 class Help(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=1000)
+    desc = models.CharField(max_length=1000, default='default description')
     type = models.CharField(
         max_length=2,
         choices=HELPS_TYPES,
@@ -60,7 +60,7 @@ class HelpImage(models.Model):
 
 class Lecture(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=1000)
+    desc = models.CharField(max_length=1000, default='default description')
     video = models.URLField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -75,11 +75,11 @@ class LectureVideo(models.Model):
 
 class FridaySermon(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=100, default='default description')  # Add default value
+    desc = models.CharField(max_length=100, default='default description')
     title_1 = models.CharField(max_length=100)
     title_2 = models.CharField(max_length=100)
-    desc_1 = models.CharField(max_length=1000000)
-    desc_2 = models.CharField(max_length=1000000)
+    desc_1 = models.CharField(max_length=1000000, default='default description for desc_1')
+    desc_2 = models.CharField(max_length=1000000, default='default description for desc_2')
     video_1 = models.URLField(max_length=500)
     video_2 = models.URLField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -97,7 +97,7 @@ class Image(models.Model):
 
 class Status(models.Model):
     title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=200)
+    desc = models.CharField(max_length=200, default='default description')
     deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -109,7 +109,7 @@ class StatusImage(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    desc = models.CharField(max_length=200)
+    desc = models.CharField(max_length=200, default='default description')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -122,7 +122,7 @@ class BookPDF(models.Model):
 class Live(models.Model):
     url = models.URLField(max_length=200)
     title = models.CharField(max_length=200)
-    desc = models.CharField(max_length=200)
+    desc = models.CharField(max_length=200, default='default description')
 
 class Views(models.Model):
     type = models.CharField(max_length=200)
