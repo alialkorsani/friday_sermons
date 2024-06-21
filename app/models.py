@@ -61,7 +61,7 @@ class HelpImage(models.Model):
 class Lecture(models.Model):
     title = models.CharField(max_length=100, default='default title')
     desc = models.CharField(max_length=1000, default='default description')
-    video = models.URLField(max_length=500)
+    video = models.URLField(max_length=500, default='http://default.video.url')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -80,8 +80,8 @@ class FridaySermon(models.Model):
     title_2 = models.CharField(max_length=100, default='default title 2')
     desc_1 = models.CharField(max_length=1000000, default='default description for desc_1')
     desc_2 = models.CharField(max_length=1000000, default='default description for desc_2')
-    video_1 = models.URLField(max_length=500)
-    video_2 = models.URLField(max_length=500)
+    video_1 = models.URLField(max_length=500, default='http://default.video.url')
+    video_2 = models.URLField(max_length=500, default='http://default.video.url')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
