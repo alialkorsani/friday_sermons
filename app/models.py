@@ -13,8 +13,8 @@ class Token(models.Model):
     )
 
 class New(models.Model):
-    title = models.CharField(max_length=100)
-    desc = models.CharField(max_length=10000)
+    title = models.CharField(max_length=100, default='default title')
+    desc = models.CharField(max_length=10000, default='default description')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -38,7 +38,7 @@ HELPS_SOURCE = [
 ]
 
 class Help(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
     desc = models.CharField(max_length=1000, default='default description')
     type = models.CharField(
         max_length=2,
@@ -52,18 +52,18 @@ class Help(models.Model):
     )
     value = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class HelpImage(models.Model):
     item = models.ForeignKey(Help, on_delete=models.CASCADE, related_name="files")
     image = models.ImageField(upload_to="images")
 
 class Lecture(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
     desc = models.CharField(max_length=1000, default='default description')
     video = models.URLField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class LectureVideo(models.Model):
     item = models.OneToOneField(
@@ -74,44 +74,44 @@ class LectureVideo(models.Model):
     image = models.ImageField(upload_to="videos")
 
 class FridaySermon(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
     desc = models.CharField(max_length=100, default='default description')
-    title_1 = models.CharField(max_length=100)
-    title_2 = models.CharField(max_length=100)
+    title_1 = models.CharField(max_length=100, default='default title 1')
+    title_2 = models.CharField(max_length=100, default='default title 2')
     desc_1 = models.CharField(max_length=1000000, default='default description for desc_1')
     desc_2 = models.CharField(max_length=1000000, default='default description for desc_2')
     video_1 = models.URLField(max_length=500)
     video_2 = models.URLField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class FridaySermonVideo(models.Model):
     item = models.ForeignKey(FridaySermon, on_delete=models.CASCADE, related_name="files")
     image = models.ImageField(upload_to="videos")
 
 class Image(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
     image = models.ImageField(upload_to="images")
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class Status(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
     desc = models.CharField(max_length=200, default='default description')
     deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class StatusImage(models.Model):
     item = models.ForeignKey(Status, on_delete=models.CASCADE, related_name="files")
     image = models.ImageField(upload_to="images")
 
 class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, default='default title')
+    author = models.CharField(max_length=100, default='default author')
     desc = models.CharField(max_length=200, default='default description')
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
 class BookPDF(models.Model):
     item = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="files")
@@ -121,7 +121,7 @@ class BookPDF(models.Model):
 
 class Live(models.Model):
     url = models.URLField(max_length=200)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, default='default title')
     desc = models.CharField(max_length=200, default='default description')
 
 class Views(models.Model):
@@ -130,13 +130,13 @@ class Views(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
 class Stat(models.Model):
-    label = models.CharField(max_length=255)
-    value = models.FloatField()
-    count = models.IntegerField()
-    year = models.IntegerField()
-    source = models.CharField(max_length=100)
+    label = models.CharField(max_length=255, default='default label')
+    value = models.FloatField(default=0.0)
+    count = models.IntegerField(default=0)
+    year = models.IntegerField(default=2023)
+    source = models.CharField(max_length=100, default='default source')
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.year} - {self.label} - {self.value} - {self.count}"
