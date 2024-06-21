@@ -28,7 +28,7 @@ def Login(request):
     password = request.GET.get("password")
     user = User.objects.get(username=username)
     user.check_password(password)
-    if not user.check_password(password):
+    if  user.check_password(password):
         return JsonResponse(getError("not authenticated"), status=401)
 
     try:
